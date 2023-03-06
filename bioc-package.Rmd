@@ -1545,7 +1545,7 @@ To set up GitHub Actions with `rworkflows`, the following command only needs to 
 
 See `?rworkflows::use_workflow` for a full description of all arguments.
 
-```{r}
+```{r, eval=FALSE}
 rworkflows::use_workflow(run_pkgdown = TRUE, 
                          run_rcmdcheck = TRUE,
                          run_bioccheck = TRUE,
