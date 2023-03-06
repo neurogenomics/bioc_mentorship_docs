@@ -29,8 +29,10 @@
   - Instead, just include a link to the Actions tab.
   - Rather than saying "The full report is fairly large; only the `ERROR` message is displayed below."
     just collapse the full report by default.
-* *.github/workflows/build_deploy.yml*:
-  - Fix `r-lib/actions/setup-pandoc@master` (which no longer exists) --> `r-lib/actions/setup-pandoc@v2`
+* *.github/workflows/build_deploy.yml*: Needed a number of fixes.
+  - pandoc is already included in the Bioconductor docker images, and trying to install it yourself causes problems. 
+  - Even if you were doing this without the Bioc Docker container, 
+    you would have to fix `r-lib/actions/setup-pandoc@master` (which no longer exists) --> `r-lib/actions/setup-pandoc@v2`
 
 ## Version 1.0.0 (2021-07-27)
 
