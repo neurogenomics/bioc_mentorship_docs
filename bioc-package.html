@@ -7,7 +7,7 @@
 <title>Chapter 6 Making a Bioconductor package | Bioconductor Guidelines for Mentors and Mentees</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="description" content="This chapter demonstrates how to make a Bioconductor package using a workflow that utilises the following R packages: rworkflows (CRAN) usethis (CRAN) biocthis (Bioconductor) This is just one...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Making a Bioconductor package | Bioconductor Guidelines for Mentors and Mentees">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This chapter demonstrates how to make a Bioconductor package using a workflow that utilises the following R packages: rworkflows (CRAN) usethis (CRAN) biocthis (Bioconductor) This is just one...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="This chapter demonstrates how to make a Bioconductor package using a workflow that utilises the following R packages: rworkflows (CRAN) usethis (CRAN) biocthis (Bioconductor) This is just one...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -105,7 +105,7 @@ that utilises the following R packages:</p>
 <li>
 <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (CRAN)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.17/biocthis">biocthis</a></em> (Bioconductor)</li>
+<em><a href="https://bioconductor.org/packages/3.18/biocthis">biocthis</a></em> (Bioconductor)</li>
 </ol>
 <p>This is just one example of an opinionated workflow for making a
 Bioconductor-friendly package, highlighting accessory packages
@@ -130,8 +130,8 @@ Other operating systems may require some adjustments.</p>
 <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a>.</p>
 <p>This workflow was written using R version 4.1.2 (2021-11-01) – “Bird Hippie”.</p>
 <p>This workflow starts in the RStudio application, outside of any RStudio project.</p>
-<div class="figure">
-<img src="images/rstudio-initial-state.png" style="width:100.0%" alt=""><p class="caption">Initial state of the RStudio application.</p>
+<div class="float">
+<img src="images/rstudio-initial-state.png" style="width:100.0%" alt="Initial state of the RStudio application."><div class="figcaption">Initial state of the RStudio application.</div>
 </div>
 </div>
 <div id="install-accessory-packages" class="section level2" number="6.2">
@@ -172,7 +172,7 @@ CRAN packages that will be used to develop the new Bioconductor package.</p>
 <span class="header-section-number">6.2.2</span> Bioconductor packages<a class="anchor" aria-label="anchor" href="#bioconductor-packages"><i class="fas fa-link"></i></a>
 </h3>
 <p>Next, we install the Bioconductor packages if they are not yet installed.</p>
-<p><em><a href="https://bioconductor.org/packages/3.17/BiocStyle">BiocStyle</a></em> will be used for styling the vignettes
+<p><em><a href="https://bioconductor.org/packages/3.18/BiocStyle">BiocStyle</a></em> will be used for styling the vignettes
 of the new Bioconductor package and linking to other packages.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_bioc.html">install_bioc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"biocthis"</span>,<span class="st">"BiocStyle"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
@@ -230,8 +230,8 @@ Here, we provide two alternative workflows for creating an R package template:</
 <p><a href="https://github.com/neurogenomics/templateR"><code>templateR</code></a> is an R package template distributed via GitHub and is part of the <a href="https://github.com/neurogenomics/rworkflows"><code>rworkflows</code> suite</a>.</p>
 <p>It aims to automate R package creation as much as possible by filling out the template for you with using information extracted from the <code>DESCRIPTION</code> file. This minimises the amount of time you have to spend entering the same information in manually for each file (e.g. package name/description, documentation site, vignette links). Importantly, it does this dynamically such that if you ever decide to change any of these fields, the updated information will be automatically propagated to all relevant files in your package.</p>
 <p>To create your template, simply navigate to the <a href="https://github.com/neurogenomics/templateR"><code>templateR</code> GitHub repository</a> and click the <em>Use this template</em> button in the upper right, and follow the steps to create a new Github repository:</p>
-<div class="figure">
-<img src="images/templateR-create.png" style="width:100.0%" alt=""><p class="caption">Creating template with templateR</p>
+<div class="float">
+<img src="images/templateR-create.png" style="width:100.0%" alt="Creating template with templateR"><div class="figcaption">Creating template with templateR</div>
 </div>
 <p>Finally, clone the repo to your local machine.</p>
 <p><strong>How to clone</strong></p>
@@ -281,8 +281,8 @@ RoxygenNote: 7.1.2
 ✔ Setting active project to '&lt;no active project&gt;'</code></pre>
 <p>The RStudio application then reloads and opens the RStudio project on the new
 package in a new RStudio application window.</p>
-<div class="figure">
-<img src="images/rstudio-package-initial-state.png" style="width:100.0%" alt=""><p class="caption">Initial state of the RStudio project for the new package.</p>
+<div class="float">
+<img src="images/rstudio-package-initial-state.png" style="width:100.0%" alt="Initial state of the RStudio project for the new package."><div class="figcaption">Initial state of the RStudio project for the new package.</div>
 </div>
 <p>The package template provided by the CRAN package
 <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> includes some of the essential files that make
@@ -308,7 +308,7 @@ that contain the code of the new package.</li>
 <span class="header-section-number">6.4.2.1</span> Create template scripts<a class="anchor" aria-label="anchor" href="#create-template-scripts"><i class="fas fa-link"></i></a>
 </h4>
 <p>At this point, we use the Bioconductor package
-<em><a href="https://bioconductor.org/packages/3.17/biocthis">biocthis</a></em> to generate some R scripts with the goal of
+<em><a href="https://bioconductor.org/packages/3.18/biocthis">biocthis</a></em> to generate some R scripts with the goal of
 helping automate the process of creating R packages for Bioconductor or making
 them Bioconductor-friendly.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -412,16 +412,16 @@ Restart now?
 Selection: 3</code></pre>
 <p>Once the RStudio application has restarted, we can see the Git tab in the
 version control panel, and a <code>.git</code> sub-directory in the <code>Files</code> pane.</p>
-<div class="figure">
-<img src="images/rstudio-git-tab.png" style="width:100.0%" alt=""><p class="caption">View of the RStudio application after activating git version control.</p>
+<div class="float">
+<img src="images/rstudio-git-tab.png" style="width:100.0%" alt="View of the RStudio application after activating git version control."><div class="figcaption">View of the RStudio application after activating git version control.</div>
 </div>
 <p>Note:</p>
 <ul>
 <li>The <code>.git</code> sub-directory may not be visible until you enable the option to
 <code>Show Hidden Files</code>.</li>
 </ul>
-<div class="figure">
-<img src="images/rstudio-show-hidden-files.png" style="width:100.0%" alt=""><p class="caption">Show hidden files.</p>
+<div class="float">
+<img src="images/rstudio-show-hidden-files.png" style="width:100.0%" alt="Show hidden files."><div class="figcaption">Show hidden files.</div>
 </div>
 </div>
 <div id="connect-the-git-repository-to-github" class="section level4" number="6.4.2.5">
@@ -467,8 +467,8 @@ this chapter.</li>
 </ul>
 <p>Once the command completes,it automatically opens the landing page of the new
 GitHub repository in our default web browser.</p>
-<div class="figure">
-<img src="images/github-landing-page-initial.png" style="width:100.0%" alt=""><p class="caption">Landing page of the GitHub repository.</p>
+<div class="float">
+<img src="images/github-landing-page-initial.png" style="width:100.0%" alt="Landing page of the GitHub repository."><div class="figcaption">Landing page of the GitHub repository.</div>
 </div>
 </div>
 </div>
@@ -839,9 +839,9 @@ this point in time.</p>
 clearly assume that our new package can be obtained and installed from the
 Bioconductor repository.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.github.io/BiocManager/">"BiocManager"</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"MyBioconductorPackage"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html">install</a></span><span class="op">(</span><span class="st">"MyBioconductorPackage"</span><span class="op">)</span></span></code></pre></div>
 <p>This is obviously not the case yet, and those instructions would cause an error
 for anyone attempting to run that code.
 While we could decide to remove those currently invalid instructions, it is
@@ -1201,18 +1201,18 @@ and examine the new line in the badges section.</p>
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 &lt;!-- badges: end --&gt;</code></pre>
-<p>The next command in the script <code>03_core_files.R</code> demonstrates the function <code><a href="https://usethis.r-lib.org/reference/github_actions.html">usethis::use_github_actions_badge()</a></code>.</p>
+<p>The next command in the script <code>03_core_files.R</code> demonstrates the function <code><a href="https://usethis.r-lib.org/reference/use_github_actions_badge.html">usethis::use_github_actions_badge()</a></code>.</p>
 <p><a href="https://github.com/features/actions">GitHub Actions</a> is a optional
 functionality of the GitHub website that makes it easy to automate workflows
 related to software development, including regular building, testing, and
 deployment of the code hosted in GitHub repositories.</p>
-<p>In this example, we use the function <code><a href="https://usethis.r-lib.org/reference/github_actions.html">usethis::use_github_actions_badge()</a></code> to
+<p>In this example, we use the function <code><a href="https://usethis.r-lib.org/reference/use_github_actions_badge.html">usethis::use_github_actions_badge()</a></code> to
 add a badge that will display the result of a GitHub Actions workflow for our
 new package.
 We use the first argument <code>"R-CMD-check-bioc"</code> to declare the name of the
 GitHub Actions workflow.</p>
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github_actions.html">use_github_actions_badge</a></span><span class="op">(</span><span class="st">"R-CMD-check-bioc"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_actions_badge.html">use_github_actions_badge</a></span><span class="op">(</span><span class="st">"R-CMD-check-bioc"</span><span class="op">)</span></span></code></pre></div>
 <p>The R console displays some information as the file <code>README.Rmd</code> is edited to
 embed the new badge.</p>
 <pre><code>✔ Setting active project to '/Users/kevin/Desktop/MyBioconductorPackage'
@@ -1458,10 +1458,7 @@ about to create now.</p>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">rworkflows</span><span class="fu">::</span><span class="fu">use_workflow</span><span class="op">(</span>run_pkgdown <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                         run_rcmdcheck <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                         run_bioccheck <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                         run_docker <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                         docker_user <span class="op">=</span> <span class="st">"MyDockerName"</span>, </span>
-<span>                         force_new <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span>                         run_bioccheck <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>These parameters can be updated at any time by simply rerunning the function while setting the argument <code>force_new=TRUE</code> to overwrite the old yaml file.</p>
 <p>Here is a diagram of the full <code>rworkflows</code> pipeline:
 <img src="https://assets.researchsquare.com/files/rs-2399015/v1/91bae1deb692a749bb5c934f.jpg?maxDims=1200x1200" alt="rworkflows pipeline"></p>
@@ -1545,9 +1542,9 @@ Terminal (e.g., the <code>Terminal</code> panel of the RStudio application), or 
 <h4>
 <span class="header-section-number">6.17.1.1</span> Using Git on Terminal command line<a class="anchor" aria-label="anchor" href="#using-git-on-terminal-command-line"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="bioc-package.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb83-2"><a href="bioc-package.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"add template files"</span></span>
-<span id="cb83-3"><a href="bioc-package.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="bioc-package.html#cb83-1" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb83-2"><a href="bioc-package.html#cb83-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"add template files"</span></span>
+<span id="cb83-3"><a href="bioc-package.html#cb83-3" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="using-the-rstudio-git-panel" class="section level4" number="6.17.1.2">
 <h4>
@@ -1556,8 +1553,8 @@ Terminal (e.g., the <code>Terminal</code> panel of the RStudio application), or 
 <p>We click the <code>Git</code> tab, then the <code>Diff</code> button, and in the popup, we type a
 commit message that describes the changes that we are making in this commit.
 Then we click the <code>Commit</code> button, and the <code>Push</code> button.</p>
-<div class="figure">
-<img src="images/rstudio-git-github-actions.png" style="width:100.0%" alt=""><p class="caption">RStudio Git panel</p>
+<div class="float">
+<img src="images/rstudio-git-github-actions.png" style="width:100.0%" alt="RStudio Git panel"><div class="figcaption">RStudio Git panel</div>
 </div>
 <p>When the commit reaches the GitHub repository, the presence of the file
 <code>.github/workflows/*.yml</code> prompts GitHub to execute the GitHub Actions
@@ -1580,8 +1577,8 @@ and add the term <code>Infrastructure</code> to the section <code>biocViews</cod
 <pre><code>biocViews: Software,
     Infrastructure</code></pre>
 <p>Then, we make another commit and push the updated repository to GitHub.</p>
-<div class="figure">
-<img src="images/rstudio-git-biocviews-error.png" style="width:100.0%" alt=""><p class="caption">Make a commit that fixes an <code>ERROR</code> in the GitHub Actions workflow.</p>
+<div class="float">
+<img src="images/rstudio-git-biocviews-error.png" style="width:100.0%" alt="Make a commit that fixes an ERROR in the GitHub Actions workflow."><div class="figcaption">Make a commit that fixes an <code>ERROR</code> in the GitHub Actions workflow.</div>
 </div>
 <p>When the push to the GitHub repository completes, the GitHub Actions workflow
 is automatically triggered.
@@ -1631,8 +1628,8 @@ code still causes an issue during the execution GitHub Action workflow,
 specifically on the Ubuntu platform</p>
 <p>The relevant GitHub Actions report is available at:
 <a href="https://github.com/kevinrue/MyBioconductorPackage/runs/6388447895?check_suite_focus=true" class="uri">https://github.com/kevinrue/MyBioconductorPackage/runs/6388447895?check_suite_focus=true</a></p>
-<div class="figure">
-<img src="images/github-action-error-ubuntu.png" style="width:100.0%" alt=""><p class="caption">GitHub Actions failing specifically on the Ubuntu platform.</p>
+<div class="float">
+<img src="images/github-action-error-ubuntu.png" style="width:100.0%" alt="GitHub Actions failing specifically on the Ubuntu platform."><div class="figcaption">GitHub Actions failing specifically on the Ubuntu platform.</div>
 </div>
 <p>Specifically, the relevant part of the report is displayed below.</p>
 <pre><code>&gt; Run covr::codecov()
@@ -1652,8 +1649,8 @@ sub-directory of our package, and we write a simple function in that package.</p
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>We save the file, and then we commit and push it to the GitHub repository.</p>
-<div class="figure">
-<img src="rstudio-git-add-script.png" style="width:100.0%" alt=""><p class="caption">Add an R script in the <code>R/</code> sub-directory.</p>
+<div class="float">
+<img src="rstudio-git-add-script.png" style="width:100.0%" alt="Add an R script in the R/ sub-directory."><div class="figcaption">Add an R script in the <code>R/</code> sub-directory.</div>
 </div>
 <p>When the GitHub Action completes, we gladly see that the previous error message
 has now disappeared.
@@ -1726,18 +1723,18 @@ created branch <code>gh-pages</code>.</p>
 <code>Actions</code> and <code>General</code> sub-sections, we scroll down to the section
 <code>Workflow permissions</code> and tick the option <code>Read and write permissions</code>.
 Finally, we click the <code>Save</code> button at the bottom of the page.</p>
-<div class="figure">
-<img src="images/github-settings-allow-bot.png" style="width:100.0%" alt=""><p class="caption">Give GitHub Actions workflows read and write permissions to the repository.</p>
+<div class="float">
+<img src="images/github-settings-allow-bot.png" style="width:100.0%" alt="Give GitHub Actions workflows read and write permissions to the repository."><div class="figcaption">Give GitHub Actions workflows read and write permissions to the repository.</div>
 </div>
 <p>At this point, we can force GitHub to re-run the failed workflow, in the
 <code>Actions</code> tab of the repository.</p>
-<div class="figure">
-<img src="images/github-actions-rerun-workflow.png" style="width:100.0%" alt=""><p class="caption">Re-run failed GitHub Actions workflows.</p>
+<div class="float">
+<img src="images/github-actions-rerun-workflow.png" style="width:100.0%" alt="Re-run failed GitHub Actions workflows."><div class="figcaption">Re-run failed GitHub Actions workflows.</div>
 </div>
 <p>In this example, when the GitHub Actions workflow completes, we see now our
 first fully successful build report!</p>
-<div class="figure">
-<img src="images/github-github-action-success.png" style="width:100.0%" alt=""><p class="caption">First fully successful GitHub Actions report.</p>
+<div class="float">
+<img src="images/github-github-action-success.png" style="width:100.0%" alt="First fully successful GitHub Actions report."><div class="figcaption">First fully successful GitHub Actions report.</div>
 </div>
 <p>An exciting output of this section is the online deployment of the package
 documentation on GitHub Pages.
@@ -1747,12 +1744,13 @@ GitHub repository at a URL built as <code>&lt;username&gt;.github.io/&lt;reposit
 <p>In doubt, one way to identify that address for your own repository is to
 navigate to the <code>Settings</code> tab, in the <code>Pages</code> section, and you will find
 the URL at the top of that page.</p>
-<div class="figure">
-<img src="images/github-pages-link.png" style="width:100.0%" alt=""><p class="caption">URL of GitHub Pages for the repository.</p>
+<div class="float">
+<img src="images/github-pages-link.png" style="width:100.0%" alt="URL of GitHub Pages for the repository."><div class="figcaption">URL of GitHub Pages for the repository.</div>
 </div>
 <p>Navigate to that URL to find the online version of your package documentation!</p>
-<div class="figure">
-<img src="images/pkgdown-github-pages.png" style="width:100.0%" alt=""><p class="caption">Package documentation deployed using <code>pkgdown</code></p>
+<div class="float">
+<img src="images/pkgdown-github-pages.png" style="width:100.0%" alt="Package documentation deployed using pkgdown"><div class="figcaption">Package documentation deployed using <code>pkgdown</code>
+</div>
 </div>
 </div>
 <div id="summary-1" class="section level2" number="6.20">
@@ -1795,7 +1793,7 @@ fix in your package.</li>
 <li>Many aspects of software development are subject to changes,
 from Bioconductor best practices and requirements, to packages intended to
 facilitate your work – e.g.: <em><a href="https://CRAN.R-project.org/package=rworkflows">rworkflows</a></em>,
-<em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and <em><a href="https://bioconductor.org/packages/3.17/biocthis">biocthis</a></em>.
+<em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and <em><a href="https://bioconductor.org/packages/3.18/biocthis">biocthis</a></em>.
 You may need to stay informed and willing to adapt the contents of your
 package to match new requirements.</li>
 <li>This chapter describes a number of optional components, and an opinionated
@@ -1983,7 +1981,7 @@ community and communicate with fellow package users and developers on the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Guidelines for Mentors and Mentees</strong>" was written by Kevin Rue-Albrecht. It was last built on 2023-03-06.</p>
+    <p>"<strong>Bioconductor Guidelines for Mentors and Mentees</strong>" was written by Kevin Rue-Albrecht. It was last built on 2023-10-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
