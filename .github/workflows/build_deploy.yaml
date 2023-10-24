@@ -21,14 +21,8 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
 
-      - name: Set up pandoc
-        uses: r-lib/actions/setup-pandoc@v2
-
-      - name: Install TinyTeX
-        run: |
-          install.packages('tinytex')
-          tinytex::install_tinytex()
-        shell: Rscript {0}
+      - name: 🛠 Install latex
+        uses: r-lib/actions/setup-tinytex@v2
 
       - name: Install dependencies
         run: |
